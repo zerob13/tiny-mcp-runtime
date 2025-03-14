@@ -10,7 +10,7 @@
 
 **本包主要是运行时实现包的抽象层。对于直接使用，我们建议安装特定的运行时包：**
 
-- [tiny-mcp-runtime-node](./packages/node/)：用于 Node.js 运行时管理
+- [tiny-mcp-runtime-nodejs](./packages/node/)：用于 Node.js 运行时管理
 - [tiny-mcp-runtime-python](./packages/python/)：用于 Python 运行时管理
 
 核心包更适合希望扩展或自定义运行时实现的开发者，或者那些基于此框架创建新语言运行时包的开发者。
@@ -35,7 +35,7 @@
 该库采用模块化设计，由以下组件组成：
 
 - **tiny-mcp-runtime**：核心库，提供运行时的抽象接口
-- **tiny-mcp-runtime-node**：Node.js 运行时实现
+- **tiny-mcp-runtime-nodejs**：Node.js 运行时实现
 - **tiny-mcp-runtime-python**：Python 运行时实现
 
 每个运行时模块都是独立的 npm 包，可以单独安装和使用。
@@ -46,7 +46,7 @@
 
 ```bash
 # 使用 Node.js 运行时
-npm install tiny-mcp-runtime-node
+npm install tiny-mcp-runtime-nodejs
 
 # 使用 Python 运行时
 npm install tiny-mcp-runtime-python

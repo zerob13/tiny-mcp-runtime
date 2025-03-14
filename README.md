@@ -10,7 +10,7 @@ A lightweight multi-language runtime environment management library supporting N
 
 **This package is primarily an abstraction layer for the runtime implementation packages. For direct usage, we recommend installing the specific runtime packages:**
 
-- [tiny-mcp-runtime-node](./packages/node/): For Node.js runtime management
+- [tiny-mcp-runtime-nodejs](./packages/node/): For Node.js runtime management
 - [tiny-mcp-runtime-python](./packages/python/): For Python runtime management
 
 This core package is better suited for developers looking to extend or customize the runtime implementation, or those creating new language runtime packages based on this framework.
@@ -35,7 +35,7 @@ This core package is better suited for developers looking to extend or customize
 The library uses a modular design consisting of these components:
 
 - **tiny-mcp-runtime**: Core library providing runtime abstract interfaces
-- **tiny-mcp-runtime-node**: Node.js runtime implementation
+- **tiny-mcp-runtime-nodejs**: Node.js runtime implementation
 - **tiny-mcp-runtime-python**: Python runtime implementation
 
 Each runtime module is an independent npm package that can be installed and used separately.
@@ -46,7 +46,7 @@ If you simply need a runtime environment for your application:
 
 ```bash
 # For Node.js runtime
-npm install tiny-mcp-runtime-node
+npm install tiny-mcp-runtime-nodejs
 
 # For Python runtime
 npm install tiny-mcp-runtime-python

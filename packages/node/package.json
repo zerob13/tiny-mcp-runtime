@@ -1,5 +1,5 @@
 {
-  "name": "tiny-mcp-runtime-node",
+  "name": "tiny-mcp-runtime-nodejs",
   "version": "0.0.1",
   "description": "Node.js runtime for tiny-mcp-runtime",
   "main": "dist/index.js",

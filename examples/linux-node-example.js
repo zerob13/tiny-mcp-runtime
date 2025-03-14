@@ -1,5 +1,5 @@
 // Linux 平台示例
-const { NodeRuntime } = require("tiny-mcp-runtime-node");
+const { NodeRuntime } = require("tiny-mcp-runtime-nodejs");
 
 async function main() {
   try {

@@ -1,4 +1,4 @@
-# tiny-mcp-runtime-node
+# tiny-mcp-runtime-nodejs
 
 <div align="center">
   <a href="./README.zh.md">中文</a> / English
@@ -8,7 +8,7 @@ Node.js Runtime Management Library, a component of the `tiny-mcp-runtime` series
 
 ## Introduction
 
-`tiny-mcp-runtime-node` is a library for managing Node.js runtime environments. It can automatically download, install, and execute specified versions of Node.js, storing the runtime files directly in the dependency package for easy application packaging and distribution.
+`tiny-mcp-runtime-nodejs` is a library for managing Node.js runtime environments. It can automatically download, install, and execute specified versions of Node.js, storing the runtime files directly in the dependency package for easy application packaging and distribution.
 
 This library is particularly suitable for applications that need to embed Node.js environments, such as Electron applications, build tools, and testing frameworks.
 
@@ -25,10 +25,10 @@ This library is particularly suitable for applications that need to embed Node.j
 
 ```bash
 # Basic installation
-npm install tiny-mcp-runtime-node
+npm install tiny-mcp-runtime-nodejs
 
 # Specify target architecture and platform
-npm install tiny-mcp-runtime-node --arch=arm64 --platform=linux
+npm install tiny-mcp-runtime-nodejs --arch=arm64 --platform=linux
 ```
 
 ## Quick Start
@@ -36,7 +36,7 @@ npm install tiny-mcp-runtime-node --arch=arm64 --platform=linux
 ### Basic Usage
 
 ```javascript
-const { NodeRuntime } = require('tiny-mcp-runtime-node');
+const { NodeRuntime } = require('tiny-mcp-runtime-nodejs');
 
 async function main() {
   // Create runtime instance
@@ -159,7 +159,7 @@ console.log("Node.js installation path:", path);
 
 ```javascript
 // In Electron main process
-const { NodeRuntime } = require('tiny-mcp-runtime-node');
+const { NodeRuntime } = require('tiny-mcp-runtime-nodejs');
 
 async function runSecondaryNodeInstance() {
   const runtime = new NodeRuntime({ version: 'v18.16.0' });
@@ -210,7 +210,7 @@ async function multiVersionExample() {
 A: Use the `version` parameter, e.g., `new NodeRuntime({ version: "v16.14.0" })`.
 
 ### Q: Where are Node.js binary files stored?
-A: They're stored in the `node_modules/tiny-mcp-runtime-node/bin` directory.
+A: They're stored in the `node_modules/tiny-mcp-runtime-nodejs/bin` directory.
 
 ### Q: Why do I need this library instead of using Node.js installed on the system?
 A: This library allows you to embed specific versions of Node.js in your application, without depending on versions installed on the user's system, while making packaging and distribution easier.

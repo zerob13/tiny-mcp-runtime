@@ -1,4 +1,4 @@
-# tiny-mcp-runtime-node
+# tiny-mcp-runtime-nodejs
 
 <div align="center">
   中文 / <a href="./README.md">English</a>
@@ -8,7 +8,7 @@ Node.js 运行时管理库，`tiny-mcp-runtime` 系列的组件。
 
 ## 介绍
 
-`tiny-mcp-runtime-node` 是一个用于管理 Node.js 运行时环境的库。它可以自动下载、安装和执行指定版本的 Node.js，并将运行时文件直接存储在依赖包中，方便应用打包和分发。
+`tiny-mcp-runtime-nodejs` 是一个用于管理 Node.js 运行时环境的库。它可以自动下载、安装和执行指定版本的 Node.js，并将运行时文件直接存储在依赖包中，方便应用打包和分发。
 
 这个库特别适合需要嵌入 Node.js 环境的应用程序，如 Electron 应用、构建工具和测试框架等。
 
@@ -25,10 +25,10 @@ Node.js 运行时管理库，`tiny-mcp-runtime` 系列的组件。
 
 ```bash
 # 基本安装
-npm install tiny-mcp-runtime-node
+npm install tiny-mcp-runtime-nodejs
 
 # 指定目标架构和平台
-npm install tiny-mcp-runtime-node --arch=arm64 --platform=linux
+npm install tiny-mcp-runtime-nodejs --arch=arm64 --platform=linux
 ```
 
 ## 快速开始
@@ -36,7 +36,7 @@ npm install tiny-mcp-runtime-node --arch=arm64 --platform=linux
 ### 基本用法
 
 ```javascript
-const { NodeRuntime } = require('tiny-mcp-runtime-node');
+const { NodeRuntime } = require('tiny-mcp-runtime-nodejs');
 
 async function main() {
   // 创建运行时实例
@@ -159,7 +159,7 @@ console.log("Node.js 安装路径:", path);
 
 ```javascript
 // 在 Electron 主进程中
-const { NodeRuntime } = require('tiny-mcp-runtime-node');
+const { NodeRuntime } = require('tiny-mcp-runtime-nodejs');
 
 async function runSecondaryNodeInstance() {
   const runtime = new NodeRuntime({ version: 'v18.16.0' });
@@ -209,7 +209,7 @@ async function multiVersionExample() {
 A: 使用 `version` 参数，例如 `new NodeRuntime({ version: "v16.14.0" })`。
 
 ### Q: Node.js 二进制文件存储在哪里？
-A: 存储在 `node_modules/tiny-mcp-runtime-node/bin` 目录下。
+A: 存储在 `node_modules/tiny-mcp-runtime-nodejs/bin` 目录下。
 
 ### Q: 为什么我需要这个库而不是直接使用系统安装的 Node.js？
 A: 这个库允许你在应用中嵌入特定版本的 Node.js，而不依赖用户系统上安装的版本，同时便于打包和分发。
