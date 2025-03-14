@@ -1,0 +1,24 @@
+{
+  "name": "tiny-mcp-runtime",
+  "version": "1.0.0",
+  "description": "a tiny runtime with node.js and python",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zerob13/tiny-mcp-runtime.git"
+  },
+  "keywords": [
+    "runtime",
+    "node.js",
+    "python"
+  ],
+  "author": "zerob13",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zerob13/tiny-mcp-runtime/issues"
+  },
+  "homepage": "https://github.com/zerob13/tiny-mcp-runtime#readme"
+}
