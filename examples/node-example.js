@@ -1,5 +1,5 @@
 // 使用示例
-const { NodeRuntime } = require("../dist/index");
+const { NodeRuntime } = require("../dist/packages/node/index");
 
 async function main() {
   try {
