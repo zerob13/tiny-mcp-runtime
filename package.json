@@ -4,7 +4,9 @@
   "description": "a tiny runtime with node.js and python",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,21 @@
   "bugs": {
     "url": "https://github.com/zerob13/tiny-mcp-runtime/issues"
   },
-  "homepage": "https://github.com/zerob13/tiny-mcp-runtime#readme"
+  "homepage": "https://github.com/zerob13/tiny-mcp-runtime#readme",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "extract-zip": "^2.0.1",
+    "fs-extra": "^11.2.0",
+    "tar": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.11.25",
+    "@types/tar": "^6.1.10",
+    "typescript": "^5.4.2"
+  },
+  "files": [
+    "dist",
+    "index.js"
+  ]
 }

@@ -1,0 +1,30 @@
+{
+  "name": "tiny-mcp-runtime-node",
+  "version": "1.0.0",
+  "description": "Node.js runtime for tiny-mcp-runtime",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "postinstall": "node scripts/install.js"
+  },
+  "keywords": [
+    "runtime",
+    "node.js"
+  ],
+  "author": "zerob13",
+  "license": "MIT",
+  "dependencies": {
+    "tiny-mcp-runtime": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.11.25",
+    "typescript": "^5.4.2"
+  },
+  "files": [
+    "dist",
+    "index.js",
+    "scripts"
+  ]
+}
