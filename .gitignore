@@ -6,6 +6,10 @@ packages/*/node_modules
 dist
 packages/*/dist
 
+# 运行时文件
+packages/*/bin/*
+!packages/*/bin/.gitkeep
+
 # 日志
 npm-debug.log*
 yarn-debug.log*

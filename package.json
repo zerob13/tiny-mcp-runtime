@@ -1,6 +1,6 @@
 {
   "name": "tiny-mcp-runtime",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "a tiny runtime with node.js and python",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   "keywords": [
     "runtime",
     "node.js",
-    "python"
+    "python",
+    "electron"
   ],
   "author": "zerob13",
   "license": "MIT",

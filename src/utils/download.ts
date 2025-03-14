@@ -5,6 +5,7 @@ import tar from "tar";
 import { promisify } from "util";
 import { pipeline } from "stream";
 import { createWriteStream } from "fs";
+import extract from "extract-zip";
 
 const pipelineAsync = promisify(pipeline);
 
@@ -66,21 +67,63 @@ export class Downloader {
   }
 
   /**
+   * 解压ZIP文件
+   * @param zipPath ZIP文件路径
+   * @param destDir 解压目标目录
+   */
+  static async extractZip(zipPath: string, destDir: string): Promise<void> {
+    try {
+      // 确保目标目录存在
+      await fs.ensureDir(destDir);
+
+      // 解压ZIP文件
+      await extract(zipPath, { dir: destDir });
+
+      console.log(`ZIP文件已解压到: ${destDir}`);
+    } catch (error) {
+      console.error("ZIP解压失败:", error);
+      throw error;
+    }
+  }
+
+  /**
    * 获取当前系统平台的标识，用于下载对应版本
    */
   static getPlatformIdentifier(): string {
     const platform = process.platform;
     const arch = process.arch;
 
+    // 将arch转为字符串以避免类型错误
+    const archStr = String(arch);
+
     // 针对不同平台返回对应的标识符
     if (platform === "darwin") {
-      return arch === "arm64" ? "darwin-arm64" : "darwin-x64";
+      return archStr === "arm64" ? "darwin-arm64" : "darwin-x64";
     } else if (platform === "linux") {
-      return arch === "arm64" ? "linux-arm64" : "linux-x64";
+      // 支持更多Linux架构
+      if (archStr === "arm64") {
+        return "linux-arm64";
+      } else if (archStr === "arm" || archStr === "armv7l") {
+        return "linux-armv7l";
+      } else if (archStr === "ppc64" || archStr === "ppc64le") {
+        return "linux-ppc64le";
+      } else if (archStr === "s390" || archStr === "s390x") {
+        return "linux-s390x";
+      } else {
+        // 默认x64架构
+        return "linux-x64";
+      }
     } else if (platform === "win32") {
-      return "win-x64";
+      // 支持Windows的不同架构
+      if (archStr === "arm64") {
+        return "win-arm64";
+      } else if (archStr === "ia32" || archStr === "x86") {
+        return "win-x86";
+      } else {
+        return "win-x64";
+      }
     }
 
-    throw new Error(`不支持的平台: ${platform}-${arch}`);
+    throw new Error(`不支持的平台: ${platform}-${archStr}`);
   }
 }

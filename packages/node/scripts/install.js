@@ -12,15 +12,39 @@ if (process.env.CI === "true" || process.env.TINY_MCP_SKIP_INSTALL === "true") {
   process.exit(0);
 }
 
+// 获取 npm 配置的目标架构和平台
+function getNpmConfig() {
+  // 读取 npm_config 环境变量
+  const arch = process.env.npm_config_arch || process.arch;
+  const platform = process.env.npm_config_platform || process.platform;
+
+  console.log(`目标架构: ${arch}, 目标平台: ${platform}`);
+
+  return { arch, platform };
+}
+
+// 确保 bin 目录存在
+const fs = require("fs");
+const path = require("path");
+const binDir = path.resolve(__dirname, "../bin");
+
+if (!fs.existsSync(binDir)) {
+  fs.mkdirSync(binDir, { recursive: true });
+}
+
 // 延迟加载，确保所有依赖已经正确安装
 setTimeout(() => {
   try {
     const { NodeRuntime } = require("../dist/index");
+    const { arch, platform } = getNpmConfig();
 
-    console.log("开始安装Node.js运行时...");
+    console.log(`开始安装 Node.js 运行时 (${platform}-${arch})...`);
 
-    // 创建运行时实例
-    const runtime = new NodeRuntime();
+    // 创建运行时实例，传入 npm 配置的架构和平台
+    const runtime = new NodeRuntime({
+      arch: arch,
+      platform: platform,
+    });
 
     // 执行安装
     runtime
